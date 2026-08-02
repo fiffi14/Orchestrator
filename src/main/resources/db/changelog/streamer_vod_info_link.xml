@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<databaseChangeLog
+  xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="
+        http://www.liquibase.org/xml/ns/dbchangelog
+        https://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-latest.xsd">
+
+
+  <changeSet
+    id="create_link_between_streamer_info_and_vod_list" author="filip">
+    <createTable tableName="streamer_vod_info_link">
+      <column name="streamer_id" type="bigint">
+        <constraints nullable="false" />
+      </column>
+      <column name="vod_id" type="bigint">
+        <constraints nullable="false" />
+      </column>
+    </createTable>
+
+    <addPrimaryKey tableName="streamer_vod_info_link"
+      columnNames="streamer_id, vod_id"
+      constraintName="pk_streamer_vod_info" />
+
+    <addForeignKeyConstraint
+      constraintName="fk_streamer_vod_info_link_streamer_id"
+      baseTableName="streamer_job_info_link" baseColumnNames="streamer_id"
+      referencedTableName="streamer_info"
+      referencedColumnNames="streamer_id" onDelete="CASCADE" />
+
+    <addForeignKeyConstraint
+      constraintName="fk_streamer_vod_info_link_vod_id"
+      baseTableName="streamer_vod_info_link" baseColumnNames="vod_id"
+      referencedTableName="vod_list" referencedColumnNames="id"
+      onDelete="CASCADE" />
+
+  </changeSet>
+
+
+
+
+
+
+</databaseChangeLog>

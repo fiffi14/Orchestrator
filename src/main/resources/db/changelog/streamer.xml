@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<databaseChangeLog
+  xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="
+        http://www.liquibase.org/xml/ns/dbchangelog
+        https://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-latest.xsd">
+
+  <changeSet id="create-streamer-table" author="orchestrator">
+
+    <createTable tableName="streamer_info">
+
+      <column name="streamer_ID" type="int" autoIncrement="true">
+        <constraints primaryKey="true" nullable="false" />
+      </column>
+
+      <column name="streamer_name" type="varchar(20)">
+        <constraints nullable="false" />
+      </column>
+
+      <column name="port" type="int">
+        <constraints nullable="false" />
+      </column>
+
+      <column name="root_vod_path" type="varchar(255)">
+        <constraints nullable="false" />
+      </column>
+
+      <column name="capacity" type="int">
+        <constraints nullable="false" />
+      </column>
+
+
+      <column name="last_heartbeat_timestamp" type="timestamp" />
+
+    </createTable>
+
+    <addUniqueConstraint tableName="streamer_info"
+      columnNames="streamer_name" constraintName="unique_streamer_name" />
+
+  </changeSet>
+
+  <changeSet id="casting_Streamer_ID_to_bigint" author="filip">
+    <sql>
+      ALTER TABLE streamer_info RENAME COLUMN "streamer_ID" TO streamer_id;
+      ALTER TABLE streamer_info ALTER COLUMN streamer_ID TYPE bigint USING
+      streamer_ID::BIGINT;
+    </sql>
+  </changeSet>
+</databaseChangeLog>

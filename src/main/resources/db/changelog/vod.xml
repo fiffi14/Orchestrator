@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<databaseChangeLog
+  xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="
+        http://www.liquibase.org/xml/ns/dbchangelog
+        https://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-latest.xsd">
+
+  <changeSet id="create-vods-table" author="orchestrator">
+
+    <createTable tableName="vod_list">
+
+      <column name="id" type="int" autoIncrement="true">
+        <constraints primaryKey="true" nullable="false" />
+      </column>
+
+      <column name="asset_name" type="varchar(255)">
+        <constraints nullable="false" />
+      </column>
+
+      <column name="streamer_id" type="int">
+        <constraints nullable="false" />
+      </column>
+
+    </createTable>
+
+    <addUniqueConstraint tableName="vod_list"
+      columnNames="asset_name, streamer_id"
+      constraintName="unique_asset_per_stream" />
+
+  </changeSet>
+
+  <changeSet id="casting_id_to_bigint" author="filip">
+    <sql>
+      ALTER TABLE vod_list ALTER COLUMN id TYPE bigint USING id::BIGINT;
+    </sql>
+  </changeSet>
+
+  <changeSet id="drop_streamer_id_from_vod_list"
+    author="orchestrator">
+
+    <dropUniqueConstraint tableName="vod_list"
+      constraintName="unique_asset_per_stream" />
+
+    <dropColumn tableName="vod_list" columnName="streamer_id" />
+
+  </changeSet>
+
+  <changeSet id="add_unique_constraint_to_asset_name"
+    author="andrej">
+    <sql> ALTER TABLE vod_list ADD CONSTRAINT uq_vod_list_asset_name
+      UNIQUE (asset_name);
+    </sql>
+  </changeSet>
+
+</databaseChangeLog>

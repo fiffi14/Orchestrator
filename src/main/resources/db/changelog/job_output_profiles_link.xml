@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<databaseChangeLog
+  xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="
+        http://www.liquibase.org/xml/ns/dbchangelog
+        https://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-latest.xsd">
+
+
+  <changeSet
+    id="create_link_between_job_info_and_profile_configs" author="filip">
+    <createTable tableName="job_output_profiles_link">
+      <column name="job_id" type="bigint">
+        <constraints nullable="false" />
+      </column>
+      <column name="output_profile_id" type="bigint">
+        <constraints nullable="false" />
+      </column>
+    </createTable>
+
+    <addPrimaryKey tableName="job_output_profiles_link"
+      columnNames="job_id, output_profile_id"
+      constraintName="pk_job_output_profiles" />
+
+    <addForeignKeyConstraint
+      constraintName="fk_job_output_profiles_link_job_id"
+      baseTableName="job_output_profiles_link" baseColumnNames="job_id"
+      referencedTableName="job_info" referencedColumnNames="job_id"
+      onDelete="CASCADE" />
+
+    <addForeignKeyConstraint
+      constraintName="fk_job_output_profiles_link_profile_id"
+      baseTableName="job_output_profiles_link"
+      baseColumnNames="output_profile_id"
+      referencedTableName="lc_output_profile" referencedColumnNames="id"
+      onDelete="CASCADE" />
+
+  </changeSet>
+
+
+
+
+
+
+</databaseChangeLog>

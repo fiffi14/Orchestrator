@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<databaseChangeLog
+  xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="
+        http://www.liquibase.org/xml/ns/dbchangelog
+        https://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-latest.xsd">
+
+  <changeSet id="create-job-info-table" author="orchestrator">
+
+    <createTable tableName="job_info">
+
+      <column name="job_id" type="int" autoIncrement="true">
+        <constraints primaryKey="true" nullable="false" />
+      </column>
+
+      <column name="input_vod" type="varchar(255)">
+        <constraints nullable="false" />
+      </column>
+
+      <column name="output_profiles" type="bigint">
+        <constraints nullable="false" />
+      </column>
+
+      <column name="status" type="varchar(50)">
+        <constraints nullable="false" />
+      </column>
+
+      <column name="streamer_list" type="varchar(255)">
+        <constraints nullable="false" />
+      </column>
+
+      <column name="fragment_duration" type="float">
+        <constraints nullable="false" />
+      </column>
+
+    </createTable>
+
+  </changeSet>
+
+  <changeSet id="modifyListColumnToArray" author="andrej">
+    <sql>
+      ALTER TABLE job_info
+      ALTER COLUMN output_profiles TYPE bigint[]
+      USING ARRAY[output_profiles];
+
+      ALTER TABLE job_info
+      ALTER COLUMN streamer_list TYPE bigint[]
+      USING ARRAY[streamer_list::bigint];
+    </sql>
+  </changeSet>
+
+  <changeSet
+    id="dropping_column_output_profiles_and_stream_list" author="filip">
+    <sql>
+      ALTER TABLE job_info DROP COLUMN output_profiles;
+      ALTER TABLE job_info DROP COLUMN streamer_list;
+    </sql>
+  </changeSet>
+
+  <changeSet id="job_id_type_casting_to_bigint" author="filip">
+    <sql>
+      ALTER TABLE job_info ALTER COLUMN job_id TYPE bigint USING job_id::BIGINT;
+    </sql>
+  </changeSet>
+</databaseChangeLog>

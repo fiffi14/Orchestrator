@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<databaseChangeLog
+  xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="
+        http://www.liquibase.org/xml/ns/dbchangelog
+        https://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-latest.xsd">
+
+
+  <include file="db/changelog/streamer.xml" />
+  <include file="db/changelog/vod.xml" />
+  <include file="db/changelog/output.xml" />
+  <include file="db/changelog/job.xml" />
+
+  <include file="db/changelog/job_output_profiles_link.xml" />
+  <include file="db/changelog/streamer_job_info_link.xml" />
+  <include file="db/changelog/streamer_vod_info_link.xml" />
+
+
+</databaseChangeLog>

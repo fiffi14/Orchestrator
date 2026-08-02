@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<databaseChangeLog
+  xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="
+        http://www.liquibase.org/xml/ns/dbchangelog
+        https://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-latest.xsd">
+
+  <changeSet id="create-lc-output-profile-table"
+    author="orchestrator">
+
+    <createTable tableName="lc_output_profile">
+
+      <column name="id" type="int" autoIncrement="true">
+        <constraints primaryKey="true" nullable="false" />
+      </column>
+
+      <column name="config_name" type="varchar(100)">
+        <constraints nullable="false" />
+      </column>
+
+      <column name="video_codec" type="varchar(50)">
+        <constraints nullable="false" />
+      </column>
+
+      <column name="audio_codec" type="varchar(50)">
+        <constraints nullable="false" />
+      </column>
+
+      <column name="width" type="int">
+        <constraints nullable="false" />
+      </column>
+
+      <column name="height" type="int">
+        <constraints nullable="false" />
+      </column>
+
+      <column name="bitrate" type="int">
+        <constraints nullable="false" />
+      </column>
+
+      <column name="preset" type="varchar(50)">
+        <constraints nullable="false" />
+      </column>
+
+    </createTable>
+
+  </changeSet>
+
+  <changeSet id="casting_output_profile_id_to_bigint"
+    author="filip">
+    <sql>
+      ALTER TABLE lc_output_profile ALTER COLUMN id TYPE bigint USING
+      id::bigint;
+    </sql>
+  </changeSet>
+
+</databaseChangeLog>

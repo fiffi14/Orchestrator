@@ -1,0 +1,23 @@
+{
+  "type": "record",
+  "name": "StreamerCapacityEvent",
+  "namespace": "uc.orchestrator.kafka.streamer",
+  "doc": "Event sent by Streamer service to report current number of active sessions",
+  "fields": [
+    {
+      "name": "streamerName",
+      "type": "string",
+      "doc": "Unique identifier of streamer"
+    },
+    {
+      "name": "activeSessions",
+      "type": "int",
+      "doc": "Current number of active sessions on streamer"
+    },
+    {
+      "name": "timestamp",
+      "type": "long",
+      "doc": "Event timestamp in epoch milliseconds"
+    }
+  ]
+}
