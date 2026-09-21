@@ -1,31 +1,41 @@
-[2026-07-30 19:20:29.433099] [info] Loaded JSON config successfuly!
-[2026-07-30 19:20:29.441839] [info] Opened input: /Users/filip.konjikusic/Orchestrator/Assets/GETTING_ON_III_EP_03_short.ts
-[2026-07-30 19:20:29.441921] [info] Successfully opened AUDIO decoder -> codec:mp2
-[2026-07-30 19:20:29.442017] [info] Successfully opened VIDEO decoder -> codec:h264
-[2026-07-30 19:20:29.457169] [info] Opened output - location: /Users/filip.konjikusic/Orchestrator/Downloads/VODs/GETTING_ON_III_EP_03_short_hd-p-7000-faster.ts
-[2026-07-30 19:20:29.457191] [info] Profile INITIALIZED!
-[2026-07-30 19:20:29.457198] [info] Video info -- codec:libx264 preset:faster bitrate:7000
-[2026-07-30 19:20:29.457203] [info] Audio profile -- codec:aac
-[2026-07-30 19:20:29.466562] [info] Opened output - location: /Users/filip.konjikusic/Orchestrator/Downloads/VODs/GETTING_ON_III_EP_03_short_hd-p-3500-veryfast.ts
-[2026-07-30 19:20:29.466583] [info] Profile INITIALIZED!
-[2026-07-30 19:20:29.466589] [info] Video info -- codec:libx264 preset:veryfast bitrate:3500
-[2026-07-30 19:20:29.466594] [info] Audio profile -- codec:aac
-[2026-07-30 19:20:29.473454] [info] Opened output - location: /Users/filip.konjikusic/Orchestrator/Downloads/VODs/GETTING_ON_III_EP_03_short_hd-p-1400-medium.ts
-[2026-07-30 19:20:29.473473] [info] Profile INITIALIZED!
-[2026-07-30 19:20:29.473479] [info] Video info -- codec:libx264 preset:medium bitrate:1400
-[2026-07-30 19:20:29.473484] [info] Audio profile -- codec:aac
-[2026-07-30 19:20:29.477670] [info] Opened output - location: /Users/filip.konjikusic/Orchestrator/Downloads/VODs/GETTING_ON_III_EP_03_short_hd-p-350-slow.ts
-[2026-07-30 19:20:29.477689] [info] Profile INITIALIZED!
-[2026-07-30 19:20:29.477695] [info] Video info -- codec:libx264 preset:slow bitrate:350
-[2026-07-30 19:20:29.477700] [info] Audio profile -- codec:aac
-[2026-07-30 19:20:29.477705] [info] Transcoder initialization COMPLETE!
-[2026-07-30 19:20:29.477713] [info] Video duration: 119s
-[2026-07-30 19:20:29.477718] [info] Transcoder loop RUNNING...
-[2026-07-30 19:20:36.116855] [info] 16%
-[2026-07-30 19:20:44.133027] [info] 33%
-[2026-07-30 19:20:52.266633] [info] 50%
-[2026-07-30 19:21:02.162910] [info] 67%
-[2026-07-30 19:21:12.988428] [info] 84%
-[2026-07-30 19:21:22.050577] [info] Video flushed successfully!
-[2026-07-30 19:21:22.050644] [info] Audio flushed successfully!
-[2026-07-30 19:21:22.590969] [info] Transcoder DONE!
+[2026-09-07 22:41:59.158048] [info] Loaded JSON config successfuly!
+[2026-09-07 22:41:59.186440] [info] Opened input: /Users/filip.konjikusic/Orchestrator/Assets/pepa.ts
+[2026-09-07 22:41:59.186506] [info] Successfully opened AUDIO decoder -> codec:mp2
+[2026-09-07 22:41:59.186640] [info] Successfully opened VIDEO decoder -> codec:h264
+[2026-09-07 22:41:59.201067] [info] Opened output - location: /Users/filip.konjikusic/Orchestrator/Downloads/VODs/pepa_hd-p-7000-faster.ts
+[2026-09-07 22:41:59.201097] [info] Profile INITIALIZED!
+[2026-09-07 22:41:59.201103] [info] Video info -- codec:libx264 preset:faster bitrate:7000
+[2026-09-07 22:41:59.201108] [info] Audio profile -- codec:aac
+[2026-09-07 22:41:59.206916] [info] Opened output - location: /Users/filip.konjikusic/Orchestrator/Downloads/VODs/pepa_hd-p-3500-veryfast.ts
+[2026-09-07 22:41:59.206936] [info] Profile INITIALIZED!
+[2026-09-07 22:41:59.206943] [info] Video info -- codec:libx264 preset:veryfast bitrate:3500
+[2026-09-07 22:41:59.206947] [info] Audio profile -- codec:aac
+[2026-09-07 22:41:59.211770] [info] Opened output - location: /Users/filip.konjikusic/Orchestrator/Downloads/VODs/pepa_hd-p-1400-medium.ts
+[2026-09-07 22:41:59.211795] [info] Profile INITIALIZED!
+[2026-09-07 22:41:59.211802] [info] Video info -- codec:libx264 preset:medium bitrate:1400
+[2026-09-07 22:41:59.211807] [info] Audio profile -- codec:aac
+[2026-09-07 22:41:59.215379] [info] Opened output - location: /Users/filip.konjikusic/Orchestrator/Downloads/VODs/pepa_hd-p-350-slow.ts
+[2026-09-07 22:41:59.215399] [info] Profile INITIALIZED!
+[2026-09-07 22:41:59.215405] [info] Video info -- codec:libx264 preset:slow bitrate:350
+[2026-09-07 22:41:59.215410] [info] Audio profile -- codec:aac
+[2026-09-07 22:41:59.215415] [info] Transcoder initialization COMPLETE!
+[2026-09-07 22:41:59.215421] [info] Video duration: 302s
+[2026-09-07 22:41:59.215426] [info] Transcoder loop RUNNING...
+[2026-09-07 22:42:06.767006] [info] 6%
+[2026-09-07 22:42:14.648467] [info] 13%
+[2026-09-07 22:42:21.062866] [info] 19%
+[2026-09-07 22:42:27.353312] [info] 26%
+[2026-09-07 22:42:33.186657] [info] 33%
+[2026-09-07 22:42:39.994210] [info] 39%
+[2026-09-07 22:42:46.061899] [info] 46%
+[2026-09-07 22:42:51.769949] [info] 52%
+[2026-09-07 22:42:58.351215] [info] 59%
+[2026-09-07 22:43:05.190417] [info] 66%
+[2026-09-07 22:43:12.041669] [info] 72%
+[2026-09-07 22:43:18.958171] [info] 79%
+[2026-09-07 22:43:25.572485] [info] 86%
+[2026-09-07 22:43:33.039767] [info] 92%
+[2026-09-07 22:43:39.742894] [info] 99%
+[2026-09-07 22:43:40.528536] [info] Video flushed successfully!
+[2026-09-07 22:43:40.528593] [info] Audio flushed successfully!
+[2026-09-07 22:43:40.948945] [info] Transcoder DONE!

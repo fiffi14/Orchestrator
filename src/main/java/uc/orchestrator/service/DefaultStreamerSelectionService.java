@@ -60,7 +60,11 @@ public class DefaultStreamerSelectionService implements StreamerSelectionService
                   int currentSessions = (state != null) ? state.getActiveSessions() : 0;
 
                   return new StreamerCandidate(
-                      id, info.getStreamerName(), currentSessions, info.getCapacity(), info.getPort());
+                      id,
+                      info.getStreamerName(),
+                      currentSessions,
+                      info.getCapacity(),
+                      info.getPort());
                 })
             .filter(Objects::nonNull)
             .toList();
@@ -70,7 +74,13 @@ public class DefaultStreamerSelectionService implements StreamerSelectionService
     }
 
     log.info("Total candidates found: {}", candidates.size());
-    candidates.forEach(c -> log.info("Candidate: {} | Sessions: {}/{}", c.streamerName(), c.activeSessions(), c.capacity()));
+    candidates.forEach(
+        c ->
+            log.info(
+                "Candidate: {} | Sessions: {}/{}",
+                c.streamerName(),
+                c.activeSessions(),
+                c.capacity()));
 
     List<StreamerCandidate> available =
         candidates.stream().filter(c -> c.activeSessions() < c.capacity()).toList();

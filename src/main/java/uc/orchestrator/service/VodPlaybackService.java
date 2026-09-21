@@ -14,10 +14,11 @@ public class VodPlaybackService {
 
   private final StreamerSelectionService selectionService;
   private final VodRepository vodRepository;
-  private final StreamerStateService  streamerStateService;
+  private final StreamerStateService streamerStateService;
 
   public VodPlaybackService(
-      StreamerSelectionService selectionService, VodRepository vodRepository,
+      StreamerSelectionService selectionService,
+      VodRepository vodRepository,
       StreamerStateService streamerStateService) {
     this.selectionService = selectionService;
     this.vodRepository = vodRepository;

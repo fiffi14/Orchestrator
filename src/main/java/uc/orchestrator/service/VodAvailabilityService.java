@@ -6,5 +6,4 @@ import java.util.Set;
 public interface VodAvailabilityService {
 
   Set<Long> findStreamerIdsByVodId(Long vodId);
-
 }

@@ -159,7 +159,10 @@ public class TranscodingJobService {
       // Preparing json mapper data
 
       LogoDTO logo =
-          new LogoDTO(System.getProperty(USER_HOME) + "/Orchestrator/Assets/" + request.getLogo(), request.getXLogo(), request.getYLogo());
+          new LogoDTO(
+              System.getProperty(USER_HOME) + "/Orchestrator/Assets/" + request.getLogo(),
+              request.getXLogo(),
+              request.getYLogo());
       Set<Long> outputsSet = new HashSet<>(request.getOutputs());
       String jsonConfig =
           livecoderMappingService.getExecutionConfig(
@@ -222,7 +225,12 @@ public class TranscodingJobService {
 
   public Process startTranscodingProcess(Long jobId) throws IOException {
     String configPath = "transcodingJobAssets/inputConfig.json";
-    ProcessBuilder pb = new ProcessBuilder(encoderPath, "-json", configPath);
+
+    ProcessBuilder pb =
+        new ProcessBuilder(
+            encoderPath,
+            "-json",
+            configPath);
 
     pb.redirectErrorStream(true);
     pb.redirectOutput(getLogFile(jobId, "transcoding.log"));
@@ -274,7 +282,7 @@ public class TranscodingJobService {
               "-segment_time",
               Float.toString(request.getSegmentLength()),
               outputSegmentsDirectory
-                  + "/seg%d_"
+                  + "/seg%04d_"
                   + (int) (request.getSegmentLength() * 1000)
                   + ".ts");
 

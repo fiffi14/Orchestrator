@@ -4,7 +4,6 @@ package uc.orchestrator.kafka;
 import java.util.Collections;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
-import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -44,8 +43,8 @@ public class StreamerStateService {
   }
 
   /**
-   * Optimistically increments the session count.
-   * This bridges the gap until the real Kafka heartbeat arrives.
+   * Optimistically increments the session count. This bridges the gap until the real Kafka
+   * heartbeat arrives.
    */
   public void addPendingSession(String streamerName) {
     stateMap.compute(

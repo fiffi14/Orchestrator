@@ -28,11 +28,14 @@ public class VodService {
     if (streamerIds == null || streamerIds.isEmpty()) {
       throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Streamer list is empty");
     }
-    Vod savedVod = vodRepository.findByAssetName(assetName)
-        .orElseGet(() -> {
-          Vod newVod = Vod.builder().assetName(assetName).build();
-          return vodRepository.save(newVod);
-        });
+    Vod savedVod =
+        vodRepository
+            .findByAssetName(assetName)
+            .orElseGet(
+                () -> {
+                  Vod newVod = Vod.builder().assetName(assetName).build();
+                  return vodRepository.save(newVod);
+                });
 
     for (Long streamerId : streamerIds) {
       streamerVodLinkService.createLink(streamerId, savedVod.getId());
